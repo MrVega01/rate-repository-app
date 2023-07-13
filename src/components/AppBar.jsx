@@ -2,12 +2,17 @@ import { View, StyleSheet } from "react-native";
 import StyledText from "./StyledText";
 import Constants from 'expo-constants';
 import { theme } from "../theme";
-import { Link } from "react-router-native";
+import { Link, useLocation } from "react-router-native";
 
-function AppBarTab({children, active, to}){
+function AppBarTab({children, to}){
+  const { pathname } = useLocation()
+  const textStyle = [
+    styles.text,
+    pathname === to && styles.active
+  ]
   return (
-    <Link to={to}>
-      <StyledText style={styles.text} color='white' bold>{children}</StyledText>
+    <Link to={to} underlayColor={theme.colors.primary}>
+      <StyledText style={textStyle} color='white' bold>{children}</StyledText>
     </Link>
   )  
 }
@@ -24,12 +29,16 @@ export default function AppBar(){
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.appBar.primary,
     paddingTop: Constants.statusBarHeight + 10,
     paddingBottom: 10,
     paddingHorizontal: 10
   },
   text: {
+    color: theme.appBar.textSecondary,
     paddingHorizontal: 5
+  },
+  active: {
+    color: theme.appBar.textPrimary
   }
 })

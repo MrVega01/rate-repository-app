@@ -1,8 +1,14 @@
 export const theme = {
+  appBar: {
+    primary: '#dd851f',
+    textPrimary: '#fefefe',
+    textSecondary: '#d4d4d4'
+  },
   colors:{
-    textPrimary: '#24292e',
-    textSecondary: '#586069',
-    primary: '#049',
+    textPrimary: '#fefefe',
+    textSecondary: '#d4d4d4',
+    primary: '#1f1f2e',
+    secondary: 'rgb(22, 22, 35)',
     white: '#fefefe'
   },
   fontSizes:{
