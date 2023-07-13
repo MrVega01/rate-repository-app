@@ -2,6 +2,8 @@ import { Text, View, StyleSheet } from 'react-native'
 import { RepositoryList } from './RespositoryList'
 import { Route, Routes } from 'react-router-native'
 import AppBar from './AppBar'
+import { theme } from '../theme'
+import LogInPage from '../pages/LogIn'
 
 export default function Main () {
   return (
@@ -9,7 +11,7 @@ export default function Main () {
       <AppBar/>
       <Routes>
         <Route path='/' Component={RepositoryList}/>
-        <Route path='/signin' Component={()=> <Text>Working on it!</Text>}/>
+        <Route path='/signin' Component={LogInPage}/>
       </Routes>
     </View>
   )
@@ -17,6 +19,7 @@ export default function Main () {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: theme.colors.secondary,
     flex: 1
   }
 })
