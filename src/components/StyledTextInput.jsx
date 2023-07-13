@@ -1,11 +1,12 @@
 import { TextInput, StyleSheet } from "react-native";
 import { theme } from '../theme'
 
-export default function StyledTextInput({style = {}, ...props}){
-  const inputStyle = {
-    ...styles.textInput,
-    ...style
-  }
+export default function StyledTextInput({style = {}, error, ...props}){
+  const inputStyle = [
+    styles.textInput,
+    error && styles.error,
+    style
+  ]
   return <TextInput style={inputStyle} {...props}></TextInput>
 }
 
@@ -18,5 +19,8 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     marginBottom: 10,
     color: theme.colors.textPrimary
+  },
+  error: {
+    borderColor: 'rgba(255, 0, 0, 0.5)'
   }
 })
